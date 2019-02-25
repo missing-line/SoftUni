@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Club Party", "Club Party\Club Party.csproj", "{4E497A63-CB26-4F15-9F2C-8A62ECDAAC07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tron Racers", "Tron Racers\Tron Racers.csproj", "{17FF7530-92C4-4DB3-913C-949DA20CCC44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E497A63-CB26-4F15-9F2C-8A62ECDAAC07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E497A63-CB26-4F15-9F2C-8A62ECDAAC07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E497A63-CB26-4F15-9F2C-8A62ECDAAC07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E497A63-CB26-4F15-9F2C-8A62ECDAAC07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17FF7530-92C4-4DB3-913C-949DA20CCC44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FF7530-92C4-4DB3-913C-949DA20CCC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FF7530-92C4-4DB3-913C-949DA20CCC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FF7530-92C4-4DB3-913C-949DA20CCC44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E516FB7-1C09-41AA-8E2E-DF931A5E5058}
+	EndGlobalSection
+EndGlobal

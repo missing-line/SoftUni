@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Socks", "01.Socks\01.Socks.csproj", "{FCA5EF04-1831-4CE2-9AA9-EA727EBA9CCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.ExcelFunctions", "02.ExcelFunctions\02.ExcelFunctions.csproj", "{157A6D86-66B9-4D59-8214-BC0907FA9DF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCA5EF04-1831-4CE2-9AA9-EA727EBA9CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA5EF04-1831-4CE2-9AA9-EA727EBA9CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA5EF04-1831-4CE2-9AA9-EA727EBA9CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA5EF04-1831-4CE2-9AA9-EA727EBA9CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{157A6D86-66B9-4D59-8214-BC0907FA9DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{157A6D86-66B9-4D59-8214-BC0907FA9DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{157A6D86-66B9-4D59-8214-BC0907FA9DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{157A6D86-66B9-4D59-8214-BC0907FA9DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86077F07-ED2C-4EA9-AC48-E6505E2B270D}
+	EndGlobalSection
+EndGlobal
