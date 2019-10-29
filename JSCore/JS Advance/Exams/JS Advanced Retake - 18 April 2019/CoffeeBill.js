@@ -4,7 +4,7 @@ function addProduct() {
     let price = +document.querySelectorAll('#add-product input')[1].value;
     let totalSum = +Array.from(document.querySelector('tfoot tr').children)[1].textContent;
 
-    if (inputField && price  0) {
+    if (inputField && price > 0) {
         let tr = document.createElement('tr');
         let tdName = document.createElement('td');
         let tdPrice = document.createElement('td');
