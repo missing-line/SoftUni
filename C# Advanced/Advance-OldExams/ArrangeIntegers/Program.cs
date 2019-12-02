@@ -1,12 +1,14 @@
 ﻿namespace ArrangeIntegers
 {
     using System;
+
     using System.Linq;
     public class Program
     {
         public static void Main(string[] args)
         {
-            string[] IntegerNames = {
+            string[] IntegerNames =
+            {
                 "zero",
                 "one",
                 "two",
