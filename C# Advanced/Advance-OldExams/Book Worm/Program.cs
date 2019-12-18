@@ -28,9 +28,12 @@
                 int row = positions[0, 0];
                 int col = positions[0, 1];
 
+                bool isValid = false;
+
                 if (command == "down")
                 {
-                    if (isInMatrix(matrix, row + 1, col))
+                    isValid = isInMatrix(matrix, row + 1, col);
+                    if (isValid)
                     {
                         if (matrix[row + 1][col] != "-")
                         {
@@ -40,17 +43,11 @@
                         matrix[row + 1][col] = "P";
                         matrix[row][col] = "-";
                     }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(initial))
-                        {
-                            initial = initial.Substring(0, initial.Length - 1);
-                        }
-                    }
                 }
                 else if (command == "up")
                 {
-                    if (isInMatrix(matrix, row - 1, col))
+                    isValid = isInMatrix(matrix, row - 1, col);
+                    if (isValid)
                     {
                         if (matrix[row - 1][col] != "-")
                         {
@@ -60,17 +57,11 @@
                         matrix[row - 1][col] = "P";
                         matrix[row][col] = "-";
                     }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(initial))
-                        {
-                            initial = initial.Substring(0, initial.Length - 1);
-                        }
-                    }
                 }
                 else if (command == "left")
                 {
-                    if (isInMatrix(matrix, row, col - 1))
+                    isValid = isInMatrix(matrix, row, col - 1);
+                    if (isValid)
                     {
                         if (matrix[row][col - 1] != "-")
                         {
@@ -80,17 +71,11 @@
                         matrix[row][col - 1] = "P";
                         matrix[row][col] = "-";
                     }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(initial))
-                        {
-                            initial = initial.Substring(0, initial.Length - 1);
-                        }
-                    }
                 }
                 else if (command == "right")
                 {
-                    if (isInMatrix(matrix, row, col + 1))
+                    isValid = isInMatrix(matrix, row, col + 1);
+                    if (isValid)
                     {
                         if (matrix[row][col + 1] != "-")
                         {
@@ -100,13 +85,11 @@
                         matrix[row][col + 1] = "P";
                         matrix[row][col] = "-";
                     }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(initial))
-                        {
-                            initial = initial.Substring(0, initial.Length - 1);
-                        }
-                    }
+                }
+
+                if (!isValid && !string.IsNullOrEmpty(initial))
+                {
+                    initial = initial.Substring(0, initial.Length - 1);
                 }
             }
 
