@@ -27,7 +27,7 @@ const courseSchema = new mongoose.Schema({
         type: ObjectId,
         required: true
     },
-    users: [{type: mongoose.Types.ObjectId, ref: 'User'}]
+    users: [{type: ObjectId, ref: 'User'}]
 });
 
 module.exports = mongoose.model('Course', courseSchema);

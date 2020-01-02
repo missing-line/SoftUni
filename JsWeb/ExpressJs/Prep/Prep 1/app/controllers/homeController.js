@@ -14,7 +14,7 @@ function home(req, res, next) {
 
             if (!homePageInfo.IsLoggedIn)
                     homePageInfo.courses = courses
-                        .filter(x => {if (x.isPublic){return x; }})
+                        .filter(x => {if (x.isPublic){ return x; }})
                         .sort((a,b) => a.title.localeCompare(b.title));
 
             res.render('partials/home.hbs', homePageInfo);

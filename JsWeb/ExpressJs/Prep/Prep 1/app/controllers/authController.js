@@ -1,18 +1,34 @@
 const model = require('../models/index');
 const utils = require('../utils/index');
 const {authCookieName} = require('../config/authCookie');
+const {validationResult} = require('express-validator');
 
 function create(req, res, next) {
-    res.render('partials/createCourse.hbs', {
-        pageTitle: 'Create Course',
-        IsLoggedIn: req.cookies[authCookieName] !== undefined
-    })
+
+    res
+        .render('partials/createCourse.hbs', {
+            pageTitle: 'Create Course',
+            IsLoggedIn: req.cookies[authCookieName] !== undefined ,
+
+        })
 }
 
 function postCreateCourse(req, res, next) {
     const token = req.cookies[authCookieName] || '';
 
-    utils.jwt.verifyToken(token)
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res
+            .render('partials/createCourse.hbs', {
+                pageTitle: 'Create Course',
+                IsLoggedIn: req.cookies[authCookieName] !== undefined,
+                message: errors.array()[0].msg,
+            })
+    }
+
+    utils.jwt
+        .verifyToken(token)
         .then(data => {
             model.userModel.findById(data.id).then(user => {
 
@@ -46,12 +62,12 @@ function search(req, res) {
             });
 
             if (course === undefined)
-                 return res.redirect('/');
+                return res.redirect('/');
 
             const SearchPageInfo = {
                 pageTitle: 'Search Page',
                 IsLoggedIn: req.cookies[authCookieName] !== undefined,
-                courses : [course]
+                courses: [course]
             };
             res.render('partials/home.hbs', SearchPageInfo)
         })

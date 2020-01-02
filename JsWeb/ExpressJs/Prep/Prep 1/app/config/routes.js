@@ -1,8 +1,6 @@
 const controller = require('../controllers/index');
 const auth = require('../utils/index');
 
-const authCookie = require('./authCookie');
-
 module.exports = (app) => {
 
     app.get('/', auth.authUser(false), controller.homeController.home);
@@ -17,7 +15,8 @@ module.exports = (app) => {
 
 
     app.get('/course/create', controller.authController.create);
-    app.post('/course/create', controller.authController.postCreateCourse);
+    app.post('/course/create', auth.validator, controller.authController.postCreateCourse);
+
     app.get('/details/:_id', controller.authController.details);
 
     app.get('/enroll/:_id', controller.authController.enroll);

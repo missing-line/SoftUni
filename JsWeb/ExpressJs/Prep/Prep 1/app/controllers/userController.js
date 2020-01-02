@@ -4,7 +4,10 @@ const authCookie = require('../config/authCookie');
 const {validationResult} = require('express-validator');
 
 function login(req, res, next) {
-    res.render('partials/login.hbs', {pageTitle: 'Login Page'})
+    res.render('partials/login.hbs', {
+        pageTitle: 'Login Page',
+        IsLoggedIn: req.cookies[authCookie.authCookieName] !== undefined
+    })
 }
 
 function postLogin(req, res, next) {
@@ -15,9 +18,7 @@ function postLogin(req, res, next) {
         .then(([user, match]) => {
             
             if (!match) {
-                return res.render('partials/login.hbs', {
-                    message: 'Wrong password or username!'
-                });
+                return res.render('partials/login.hbs');
             }
             const token = utils.jwt.createToken({id: user._id});
 
@@ -36,24 +37,17 @@ function postRegister(req, res, next) {
     const {username, password, repeatPassword} = req.body;
 
     if (password !== repeatPassword)
-        return res.render('partials/createCourse.hbs', {
+        return res.render('partials/register.hbs', {
             message: 'Invalid data!'
         });
-    // =>                                <=\\
-    const errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-        return res.render('partials/createCourse.hbs', {
-            message: errors.array()[0].msg,
-            oldInput: req.body
-        })
-    }
-
 
     model.userModel.create({username, password})
         .then(user => {
             const token = utils.jwt.createToken({id: user._id});
-            res.cookie(authCookie.authCookieName, token).redirect('/');
+
+            res
+                .cookie(authCookie.authCookieName, token)
+                .redirect('/');
         })
 }
 

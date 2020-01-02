@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    courses: [{type: mongoose.Types.ObjectId, ref: 'Course'}]
+    courses: [{type: ObjectId, ref: 'Course'}]
 });
 
 userSchema.methods = {
@@ -26,15 +26,11 @@ userSchema.pre('save', function (next) {
     if (this.isModified('password')) {
 
         bcrypt.genSalt(saltRounds, (err, salt) => {
-            if (err) {
-                next(err);
-                return;
-            }
+            if (err) { next(err); return;}
+
             bcrypt.hash(this.password, salt, (err, hash) => {
-                if (err) {
-                    next(err);
-                    return;
-                }
+                if (err) {next(err);return;}
+
                 this.password = hash;
                 next();
             });
