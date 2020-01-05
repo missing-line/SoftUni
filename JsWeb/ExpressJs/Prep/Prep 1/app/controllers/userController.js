@@ -1,12 +1,10 @@
 const model = require('../models/index');
 const utils = require('../utils/index');
 const authCookie = require('../config/authCookie');
-const {validationResult} = require('express-validator');
 
 function login(req, res, next) {
     res.render('partials/login.hbs', {
         pageTitle: 'Login Page',
-        IsLoggedIn: req.cookies[authCookie.authCookieName] !== undefined
     })
 }
 
@@ -24,6 +22,7 @@ function postLogin(req, res, next) {
 
             res
                 .cookie(authCookie.authCookieName, token)
+                .cookie('username', user.username)
                 .redirect('/');
 
         });
@@ -47,12 +46,16 @@ function postRegister(req, res, next) {
 
             res
                 .cookie(authCookie.authCookieName, token)
+                .cookie('username', user.username)
                 .redirect('/');
         })
 }
 
 function logout(req, res, next) {
-    res.clearCookie(authCookie.authCookieName).redirect('/');
+    res
+        .clearCookie(authCookie.authCookieName)
+        .clearCookie('username')
+        .redirect('/');
 }
 
 module.exports = {

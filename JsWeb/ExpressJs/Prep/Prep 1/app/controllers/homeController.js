@@ -1,26 +1,22 @@
-const authCookie = require('../config/authCookie');
 const models = require('../models/index');
 
 function home(req, res, next) {
 
-    models.courseModel.find()
-        .then(courses => {
+    models.courseModel.find().then(courses => {
+        const homePageInfo = {
+            pageTitle: 'Home Page',
+            courses,
+        };
 
-            const homePageInfo = {
-                pageTitle: 'Home Page',
-                IsLoggedIn: req.cookies[authCookie.authCookieName] !== undefined,
-                courses
-            };
+        if (!res.locals.IsLoggedIn)
+            homePageInfo.courses = courses.filter(x => {
+                if (x.isPublic) {
+                    return x;
+                }
+            }).sort((a, b) => a.title.localeCompare(b.title));
 
-            if (!homePageInfo.IsLoggedIn)
-                    homePageInfo.courses = courses
-                        .filter(x => {if (x.isPublic){ return x; }})
-                        .sort((a,b) => a.title.localeCompare(b.title));
-
-            res.render('partials/home.hbs', homePageInfo);
-        });
+        res.render('partials/home.hbs', homePageInfo);
+    });
 }
 
-module.exports = {
-    home,
-};
+module.exports = { home };
