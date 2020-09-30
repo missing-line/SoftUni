@@ -7,7 +7,7 @@ namespace _9._Rage_Quit
     class Program
     {
         static void Main(string[] args)
-        { // ...60/100 slow solution...but cuurent
+        { 
             string line = Console.ReadLine();
             StringBuilder repeate = new StringBuilder();
 
